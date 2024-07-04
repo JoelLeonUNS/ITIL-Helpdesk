@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="header__item"></div>
+  <div class="header__item">
+    @if (id == 3) {
+      <app-bandeja-notificaciones class="header__notification-icon"/>
+    }
+  </div>
+  <div class="header__item" style="align-items: center">
+    <nz-divider nzType="vertical"></nz-divider>
+  </div>
+  <a class="header-dropdown" nz-dropdown [nzDropdownMenu]="subMenu">
+    <div class="header__item">
+      <div class="header__user">
+        <nz-avatar
+          class="header__user-avatar"
+          [nzSize]="40"
+          nzIcon="user"
+          nzSrc=""
+        ></nz-avatar>
+        <div class="header__user-name">{{ correo }}</div>
+        <div class="header__user-rol">{{ rol }}</div>
+      </div>
+    </div>
+  </a>
+  <nz-dropdown-menu #subMenu="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item>
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+        <span style="padding-left: 0.75em">Perfil</span>
+      </li>
+      <li nz-menu-item nzDanger (click)="salir()">
+        <span nz-icon nzType="logout" nzTheme="outline"></span>
+        <span style="padding-left: 0.75em">Salir</span>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>

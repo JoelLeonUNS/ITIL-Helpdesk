@@ -1,0 +1,20 @@
+<nz-page-header>
+  <nz-page-header-title>
+    <span nz-icon nzType="file" nzTheme="outline"></span>
+    <span style="margin: 0 .5em;">Tickets</span>
+  </nz-page-header-title>
+  <nz-page-header-subtitle>Lista de tickets</nz-page-header-subtitle>
+  <nz-page-header-extra>
+    <div nz-flex [nzVertical]="false" nzJustify="end" nzAlign="center" nzGap="small">
+      <app-control-exportacion-ticket ngSkipHydration/>
+    </div>
+  </nz-page-header-extra>
+</nz-page-header>
+<div class="panel">
+  <app-tabla-pag-editar-tickets-recibidos
+  ngSkipHydration
+  #tablaCargos
+  [scroll]="{ x: '1000px', y: '400px' }"
+/>
+</div>
+<ng-container #vcrModal></ng-container>

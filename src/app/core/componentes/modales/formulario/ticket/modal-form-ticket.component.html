@@ -1,0 +1,49 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzDraggable
+  nzCentered
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="cerrar()"
+  [nzWidth]="ancho"
+>
+  <ng-template #modalTitle>
+    {{ titulo }}
+  </ng-template>
+  <ng-template #modalContent>
+    <Form nz-form [formGroup]="modalForm" [nzLayout]="'vertical'">
+      <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="24">
+          <app-select [controlName]="'type'" [label]="'Tipo Solicitud'" [atributte]="['id', 'name', 'state']" [servicio]="solicitudService" [accion]="'EDITAR'"/>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="24">
+          <app-text-area [label]="'Descripción'" [controlName]="'description'" [gender]="'F'" />
+        </div>
+      </div>
+    </Form>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button
+      nz-button
+      nzType="default"
+      [disabled]="disabledCancelar"
+      [nzLoading]="cancelando"
+      (click)="cerrar()"
+    >
+      {{ btnSecundario }}
+    </button>
+    <button
+      nz-button
+      nzType="primary"
+      [disabled]="disabledConfirmar"
+      [nzLoading]="confirmando"
+      (click)="enviarForm()"
+    >
+      {{ btnPrimario }}
+    </button>
+  </ng-template>
+</nz-modal>
+ 

@@ -1,0 +1,31 @@
+
+<nz-layout>
+    <nz-content>
+        <div nz-flex nzJustify="center" nzAlign="center" [nzVertical]="true" style="height: 100%;">
+            <h1 class="login-title">HELPDESK</h1>
+            <nz-card style="width:400px;">
+                <h2>Iniciar Sesión</h2>
+                <p>Inicia sesión con tu cuenta de <b>HELPDESK</b></p>
+                <form nz-form [formGroup]="ingresoForm" nzLayout="vertical" class="login-form" (ngSubmit)="enviarFormulario()">
+                    <nz-form-item>
+                        <nz-form-label>Correo</nz-form-label>
+                        <nz-form-control nzErrorTip="¡Por favor ingrese su correo!">
+                            <input type="email" nz-input nzSize="large" formControlName="correo" placeholder="ejemplo@email.com" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label>Contraseña</nz-form-label>
+                        <nz-form-control nzErrorTip="¡Por favor ingrese su contraseña!">
+                            <input type="password" nz-input nzSize="large" formControlName="password" placeholder="Escriba su contraseña" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <button nz-button nzSize="large" class="login-form-button login-form-margin" [nzLoading]="cargando" [nzType]="'primary'">Ingresar</button>
+                </form>
+            </nz-card>
+        </div>
+    </nz-content>
+    <nz-footer>
+        <nz-divider nzOrientation="center" nzText="HELPDESK - Copyright &copy; 2024"></nz-divider>
+        Sistema HELPDESK.
+    </nz-footer>
+</nz-layout>

@@ -1,0 +1,13 @@
+.custom-list-item {
+    height: 1.7em;
+    line-height: 1.7em;
+  }
+
+.spinner {
+  text-align: center;
+  padding: 5em;
+}
+
+.bold {
+  font-weight: 500; 
+}

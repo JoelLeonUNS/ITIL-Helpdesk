@@ -1,0 +1,39 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzDraggable
+  nzCentered
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="null"
+  (nzOnCancel)="cancelar(true)"
+  [nzWidth]="ancho"
+>
+  <ng-template #modalTitle>
+    {{ titulo }}
+  </ng-template>
+  <ng-template #modalContent>
+    <app-formato-ticket [id]="id"/>
+    <!-- <app-lista-detalles-ticket [id]="id" [labels]="labels"/> -->
+  </ng-template>
+  <ng-template #modalFooter>
+    <button
+      nz-button
+      nzType="default"
+      [disabled]="disabledCancelar"
+      [nzLoading]="cancelando"
+      (click)="cancelar(true)"
+    >
+      {{ btnSecundario }}
+    </button>
+    <!-- <button
+      nz-button
+      nzType="primary"
+      [disabled]="disabledConfirmar"
+      [nzLoading]="confirmando"
+      (click)="enviarForm()"
+    >
+      {{ btnPrimario }}
+    </button> -->
+  </ng-template>
+</nz-modal>
+ 

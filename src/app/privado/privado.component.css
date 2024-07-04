@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+    
+  nz-header {
+    padding: 0;
+    z-index: 2;
+  }
+  
+  .header-dropdown {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
+    align-items: center;
+  }
+  
+  nz-layout {
+    background: #d2dae2
+  }
+  
+  nz-content {
+    overflow: hidden;
+  }
+  

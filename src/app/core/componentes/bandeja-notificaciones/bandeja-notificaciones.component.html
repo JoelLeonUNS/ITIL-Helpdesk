@@ -1,0 +1,34 @@
+<nz-badge [nzCount]="notifications.length">
+  <a
+    nz-popover
+    [nzPopoverContent]="notificationList"
+    nzPopoverPlacement="bottom"
+    nzPopoverTrigger="click"
+  >
+    <span nz-icon nzType="bell" nzTheme="outline" style="font-size: 1.5em;"></span>
+  </a>
+</nz-badge>
+<ng-template #notificationList>
+  <nz-list style="width: 300px; overflow: auto; max-height: 500px;"
+    [nzDataSource]="notifications"
+    [nzRenderItem]="notificationItem"
+    [nzItemLayout]="'horizontal'"
+  >
+    <ng-template #notificationItem let-item>
+      <nz-list-item>
+        <nz-list-item-meta
+          [nzTitle]="item.title"
+          [nzDescription]="item.description"
+        >
+        </nz-list-item-meta>
+        <ul nz-list-item-actions>
+            <nz-list-item-action>
+                <button nz-button nzDanger nzType="link" (click)="borrar(item)">
+                    <span nz-icon nzType="delete" nzTheme="outline"></span>
+                </button>
+            </nz-list-item-action>
+        </ul>
+      </nz-list-item>
+    </ng-template>
+  </nz-list>
+</ng-template>

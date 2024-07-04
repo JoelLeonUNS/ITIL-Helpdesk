@@ -1,0 +1,13 @@
+@if (cargando) {
+  <nz-spin [nzSpinning]="cargando" class="spinner">
+  </nz-spin>
+} @else {
+  <nz-list [nzBordered]="borde" nzSize="small" >
+    @for (label of labels; track label) {
+    <nz-list-item class="custom-list-item">
+      <span class="bold" >{{ label.name }}</span>
+      <span nz-typography>{{ transPipe(items[label.attribute], label.pipe) }}</span>
+    </nz-list-item>
+    }
+  </nz-list>
+}
