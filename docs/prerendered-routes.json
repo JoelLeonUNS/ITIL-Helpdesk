@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/admin/tickets",
+    "/autenticacion",
+    "/autenticacion/ingreso",
+    "/enviar/tickets"
+  ]
+}

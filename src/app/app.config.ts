@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     PeriodoPipe,
     PeriodoMesPipe,
     ConcatenarPipe,
-    provideRouter(routes), 
+    provideRouter(routes),
     provideNzIcons(),
     provideClientHydration(), 
     provideAnimationsAsync(), provideNzI18n(es_ES), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient()
