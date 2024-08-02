@@ -1,0 +1,17 @@
+.tarjeta {
+  width: 100%;
+  border-radius: 0.4em;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  transition: all 0.3s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  border-color: #6c757d6c;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.tarjeta:hover {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  transform: rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0)) scale(0.95);
+}

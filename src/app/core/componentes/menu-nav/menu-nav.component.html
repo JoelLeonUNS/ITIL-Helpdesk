@@ -1,0 +1,15 @@
+<ul nz-menu nzMode="horizontal" style="background-color: transparent">
+  @for ( item of menus; track item) {
+      @if (item.accesoRol == rol_id) {
+          <li nz-menu-item nzMatchRouter>
+              <span
+              nz-icon
+              [nzType]="item.icon??''"
+              nzTheme="outline"
+              style="margin-right: 1em"
+              ></span>
+              <a [routerLink]="item.routerLink">{{ item.title }}</a>
+          </li>
+      }
+  }
+</ul>

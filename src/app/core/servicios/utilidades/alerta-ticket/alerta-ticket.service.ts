@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Ticket } from '../../../interfaces/modelos/ticket.interface';
 import { NotificacionService } from '../../rest/notificacion/notificacion.service';
 import { TicketService } from '../../rest/ticket/ticket.service';
 
@@ -19,7 +18,7 @@ export class AlertaTicketService {
   ticketExpired$ = this.ticketExpiredSubject.asObservable();
   private readonly EXPIRATION_DAYS = 15;
 
-  checkTicketExpiration(ticket: Ticket): void {
+  checkTicketExpiration(ticket: any): void {
   const now = new Date();
   const expirationDate = new Date(ticket.created_at);
   expirationDate.setDate(expirationDate.getDate() + this.EXPIRATION_DAYS);

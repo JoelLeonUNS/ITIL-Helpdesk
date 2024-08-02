@@ -63,13 +63,13 @@ export class TablaPagEditarComponent extends TablaPagComponent {
   }
 
   abrirModal(item:any) {
-    if (item.status != 'Abierto' && item.status != 'Cerrado') {
-      this.servicio.parcialActualizar(item.id, { status: 'Abierto' }).subscribe(
+    if (item.status != 'ABIERTO' && item.estado != 'RESUELTO') {
+      this.servicio.parcialActualizar(item.id, { estado: 'ABIERTO' }).subscribe(
         () => {
-          this.msgService.success('Ticket abierto');
+          this.msgService.success('Solicitud abierta');
           this.cargarDatosServidor();
         },
-        () => this.msgService.error('Error al abrir ticket')
+        () => this.msgService.error('Error al abrir la solicitud')
       );
     }
     this.modalService.insertarModalDetalles(this.vcr, this.modal, this.atributos, this.entidad, item);

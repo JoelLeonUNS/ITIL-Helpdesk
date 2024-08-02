@@ -32,6 +32,8 @@ export class ModalService {
     const instancia = this.crearModal(vcr, component);
     instancia.titulo = 'Detalles ' + entidad +": " + item[atributos[0]];
     instancia.id = item[atributos[1]];
+    instancia.mostrarValores(item);
+    instancia.editarPorId(item.id);
     return instancia;
   }
 

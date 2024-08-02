@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { PrivadoComponent } from './privado.component';
-import { TicketsAdminComponent } from './paginas/tickets-admin/tickets-admin.component';
-import { TicketsEnviarComponent } from './paginas/tickets-enviar/tickets-enviar.component';
 import { validacionRolGuard } from '../core/guardias/validacion-rol.guard';
 
 export const PRIVADO_ROUTES: Routes = [
@@ -10,21 +8,30 @@ export const PRIVADO_ROUTES: Routes = [
     component: PrivadoComponent,
     children: [
       {
-        path: 'admin/tickets',
+        path: 'admin',
+        data: {
+          rolesPermitidos:[1]
+        },
+        canActivate: [validacionRolGuard],
+        loadChildren: ()=> import('./admin/admin.routes').then(m => m.ADMIN_ROUTES),
+      },
+      {
+        path: 'servidor',
+        data: {
+          rolesPermitidos:[2]
+        },
+        canActivate: [validacionRolGuard],
+        loadChildren: ()=> import('./servidor/servidor.routes').then(m => m.SERVIDOR_ROUTES),
+      },
+      {
+        path: 'solicitante',
         data: {
           rolesPermitidos:[3]
         },
         canActivate: [validacionRolGuard],
-        component: TicketsAdminComponent,
+        loadChildren: ()=> import('./solicitante/solicitante.routes').then(m => m.SOLICITANTE_ROUTES),
       },
-      {
-        path: 'enviar/tickets',
-        data: {
-          rolesPermitidos:[1, 2]
-        },
-        canActivate: [validacionRolGuard],
-        component: TicketsEnviarComponent,
-      }
+      
     ],
   },
 ];

@@ -1,0 +1,26 @@
+<nz-page-header>
+  <nz-page-header-title>
+    <span nz-icon nzType="inbox" nzTheme="outline"></span>
+    <span style="margin: 0 0.5em">Solicitudes</span>
+  </nz-page-header-title>
+  <nz-page-header-subtitle>Lista de solicitudes enviadas</nz-page-header-subtitle>
+  <nz-page-header-extra>
+    <div
+      nz-flex
+      [nzVertical]="false"
+      nzJustify="end"
+      nzAlign="center"
+      nzGap="small"
+    >
+      <app-control-exportacion-solicitud ngSkipHydration />
+    </div>
+  </nz-page-header-extra>
+</nz-page-header>
+<div class="panel">
+  <app-tabla-pag-editar-solicitudes
+    ngSkipHydration
+    #tablaSolicitudes
+    [scroll]="{ x: '1200px', y: '400px' }"
+  />
+</div>
+<ng-container #vcrModal></ng-container>

@@ -21,10 +21,10 @@ import { TablaPagEditarComponent } from '../tabla-pag-editar.component';
 import { BuscadorTablaComponent } from '../../../../buscador-tabla/buscador-tabla.component';
 import { ColumnaBusqueda } from '../../../../../interfaces/utilidades/columna-busqueda.interface';
 import { TicketService } from '../../../../../servicios/rest/ticket/ticket.service';
-import { TicketPriority } from '../../../../../enums/ticket-priority';
 import { TagsEstados } from '../../../../../interfaces/utilidades/tags.interface';
-import { TicketStatus } from '../../../../../enums/ticket-status';
 import { FiltroItem } from '../../../../../interfaces/utilidades/filtro-item.interface';
+import { Estados } from '../../../../../enums/estados';
+import { Prioridad } from '../../../../../enums/prioridad';
 
 @Component({
   selector: 'app-tabla-pag-editar-tickets-enviados',
@@ -118,22 +118,22 @@ export class TablaPagEditarTicketsEnviadosComponent extends TablaPagEditarCompon
   ];
   override filtros: FiltroItem[] = [
     {
-      attribute: 'status',
+      attribute: 'estado',
       list: [
-        { text: 'Enviado', value: TicketStatus.Sent },
-        { text: 'Abierto', value: TicketStatus.Open },
-        { text: 'Cerrado', value: TicketStatus.Closed },
+        { text: 'Enviado', value: Estados.ENVIADO },
+        { text: 'Abierto', value: Estados.ABIERTO },
+        { text: 'Cerrado', value: Estados.RESUELTO },
       ],
     },
   ];
   override tags: TagsEstados = {
-    [TicketPriority.Low]: { color: 'green' },
-    [TicketPriority.Medium]: { color: 'orange' },
-    [TicketPriority.High]: { color: 'red' },
-    [TicketStatus.Sent]: { color: 'blue' },
-    [TicketStatus.InProgress]: { color: 'orange' },
-    [TicketStatus.Open]: { color: 'red' },
-    [TicketStatus.Closed]: { color: 'green' },
+    [Prioridad.BAJA]: { color: 'green' },
+    [Prioridad.MEDIA]: { color: 'orange' },
+    [Prioridad.ALTA]: { color: 'red' },
+    [Estados.ENVIADO]: { color: 'blue' },
+    [Estados.EN_PROCESO]: { color: 'orange' },
+    [Estados.ABIERTO]: { color: 'red' },
+    [Estados.RESUELTO]: { color: 'green' },
   };
 
   constructor(

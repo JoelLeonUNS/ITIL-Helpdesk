@@ -1,7 +1,12 @@
 <div class="header">
-  <div class="header__item"></div>
   <div class="header__item">
-    @if (id == 3) {
+    <img src="assets/imagenes/logo_rojo UNS.png" alt="Logo" class="header__logo" />
+  </div>
+  <div class="header__item" style="margin-right: auto;">
+    <app-menu-nav [rol_id]="rol_id??-1" />
+  </div>
+  <div class="header__item">
+    @if (id == 2) {
       <app-bandeja-notificaciones class="header__notification-icon"/>
     }
   </div>

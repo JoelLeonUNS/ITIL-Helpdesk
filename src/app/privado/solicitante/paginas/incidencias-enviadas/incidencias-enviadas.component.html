@@ -1,0 +1,11 @@
+<nz-page-header>
+  <nz-page-header-title>
+    <span nz-icon nzType="alert" nzTheme="outline"></span>
+    <span style="margin: 0 0.5em">Incidencias Enviadas</span>
+  </nz-page-header-title>
+  <nz-page-header-subtitle>Lista de incidencias</nz-page-header-subtitle>
+</nz-page-header>
+<div class="panel">
+  <app-tabla-pag-detalles-incidencias ngSkipHydration #tablaIncidencias [scroll]="{ x: '1000px', y: '400px' }"/>
+</div>
+<ng-container #vcrModal></ng-container>

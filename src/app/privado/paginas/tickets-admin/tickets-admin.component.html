@@ -6,12 +6,12 @@
   <nz-page-header-subtitle>Lista de tickets</nz-page-header-subtitle>
   <nz-page-header-extra>
     <div nz-flex [nzVertical]="false" nzJustify="end" nzAlign="center" nzGap="small">
-      <app-control-exportacion-ticket ngSkipHydration/>
+      <app-control-exportacion-solicitud ngSkipHydration/>
     </div>
   </nz-page-header-extra>
 </nz-page-header>
 <div class="panel">
-  <app-tabla-pag-editar-tickets-recibidos
+  <app-tabla-pag-editar-solicitudes
   ngSkipHydration
   #tablaCargos
   [scroll]="{ x: '1000px', y: '400px' }"

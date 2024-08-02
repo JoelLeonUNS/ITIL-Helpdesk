@@ -1,9 +1,16 @@
 {
   "routes": [
     "/",
-    "/admin/tickets",
+    "/admin",
+    "/admin/asignacion",
+    "/admin/usuarios",
     "/autenticacion",
     "/autenticacion/ingreso",
-    "/enviar/tickets"
+    "/servidor",
+    "/servidor/servicios",
+    "/servidor/solicitudes",
+    "/solicitante",
+    "/solicitante/incidencias",
+    "/solicitante/servicios"
   ]
 }

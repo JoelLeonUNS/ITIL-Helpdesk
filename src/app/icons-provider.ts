@@ -54,6 +54,8 @@ import {
   LogoutOutline,
   EditOutline,
   BellOutline,
+  ExportOutline,
+  ClockCircleOutline,
 } from '@ant-design/icons-angular/icons';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
@@ -112,6 +114,8 @@ const icons = [
   LogoutOutline,
   EditOutline,
   BellOutline,
+  ExportOutline,
+  ClockCircleOutline,
 ];
 
 export function provideNzIcons(): EnvironmentProviders {

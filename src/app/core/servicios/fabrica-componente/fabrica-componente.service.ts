@@ -1,13 +1,17 @@
 import { Injectable, Type } from '@angular/core';
-import { ModalFormTicketComponent } from '../../componentes/modales/formulario/ticket/modal-form-ticket.component';
-import { ModalDetallesTicketComponent } from '../../componentes/modales/modal/detalles-ticket/modal-detalles-ticket.component';
+import { ModalFormIncidenciaComponent } from '../../componentes/modales/formulario/incidencia/modal-form-incidencia.component';
+import { ModalDetallesTicketComponent } from '../../componentes/modales/detalles/detalles-ticket/modal-detalles-ticket.component';
+import { ModalFormServicioSolicitanteComponent } from '../../componentes/modales/formulario/servicio-solicitante/modal-form-servicio-solicitante.component';
+import { ModalDetallesSolicitudesComponent } from '../../componentes/modales/detalles/solicitudes/modal-detalles-solicitudes.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FabricaComponenteService {
   private componentes: { [key: string]: Type<any> } = {
-    modalFormTicket: ModalFormTicketComponent,
+    modalFormIncidencia: ModalFormIncidenciaComponent,
+    modalDetallesIncidencia: ModalFormServicioSolicitanteComponent,
+    modalDetallesSolicitudes: ModalDetallesSolicitudesComponent,
     modalDetallesTicket: ModalDetallesTicketComponent,
   };
 

@@ -1,0 +1,1 @@
+import"./chunk-P2VZOJAX.js";var a=[{path:"",redirectTo:"autenticacion",pathMatch:"full"},{path:"autenticacion",loadChildren:()=>import("./chunk-K2JU3L6Q.js").then(t=>t.AUTENTICACION_ROUTES)}];export{a as PUBLICO_ROUTES};

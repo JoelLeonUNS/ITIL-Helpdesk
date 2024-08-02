@@ -1,0 +1,9 @@
+<nz-card [nzTitle]="titulo" [nzExtra]="extraTemplate" class="tarjeta">
+    <p style="color: rgb(115, 115, 115);">{{ descripcion }}</p>
+    <nz-rate [ngModel]="calificacion" [nzDisabled]="true"></nz-rate>
+</nz-card>
+<ng-template #extraTemplate>
+    <nz-tag nzColor="blue">
+        <span nz-icon nzType="clock-circle" nzTheme="outline"></span> {{ tiempoDemora }} h
+    </nz-tag>
+</ng-template>

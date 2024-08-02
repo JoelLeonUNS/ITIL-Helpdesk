@@ -11,8 +11,8 @@ import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
-import { TablaPagEditarTicketsRecibidosComponent } from '../../../core/componentes/tablas/paginada/editar/tickets-recibidos/tabla-pag-editar-tickets-recibidos.component';
-import { ControlExportacionTicketComponent } from "../../../core/componentes/control-exportacion/ticket/control-exportacion-ticket.component";
+import { TablaPagEditarSolicitudesComponent } from '../../../core/componentes/tablas/paginada/editar/solicitudes/tabla-pag-editar-solicitudes.component';
+import { ControlExportacionsolicitudComponent } from '../../../core/componentes/control-exportacion/solicitud/control-exportacion-solicitud.component';
 
 @Component({
     selector: 'app-tickets-admin',
@@ -33,8 +33,8 @@ import { ControlExportacionTicketComponent } from "../../../core/componentes/con
         NzTagModule,
         NzSpaceModule,
         NzPageHeaderModule,
-        TablaPagEditarTicketsRecibidosComponent,
-        ControlExportacionTicketComponent
+        TablaPagEditarSolicitudesComponent,
+        ControlExportacionsolicitudComponent
     ]
 })
 export class TicketsAdminComponent {

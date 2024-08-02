@@ -112,12 +112,6 @@ export class TablaPagComponent {
     };
   }
 
-  // verificarFiltrosVacios(): boolean {
-  //   return this.columnas!.filter((columna) => columna.showFilter).every(
-  //     (columna) => columna.listOfFilter!.length > 0
-  //   );
-  // }
-
   reiniciarFiltros() {
     console.log('reiniciar filtros');
     this.filtros.forEach((filtro) => {

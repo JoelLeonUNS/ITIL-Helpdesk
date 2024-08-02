@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  NonNullableFormBuilder,
+  Validators,
+} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from '../../../core/servicios/rest/autenticacion/autenticacion.service';
@@ -19,21 +24,31 @@ import { UsuarioService } from '../../../core/servicios/rest/usuario/usuario.ser
 @Component({
   selector: 'app-ingreso',
   standalone: true,
-  imports: [ReactiveFormsModule, NzIconModule, NzFormModule, NzInputModule, NzButtonModule,NzCardModule, NzCheckboxModule, NzFlexModule, NzLayoutModule, NzDividerModule],
+  imports: [
+    ReactiveFormsModule,
+    NzIconModule,
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    NzCardModule,
+    NzCheckboxModule,
+    NzFlexModule,
+    NzLayoutModule,
+    NzDividerModule,
+  ],
   templateUrl: './ingreso.component.html',
-  styleUrl: './ingreso.component.css'
+  styleUrl: './ingreso.component.css',
 })
 export class IngresoComponent implements OnInit {
-
   ingresoForm: FormGroup<{
     correo: FormControl<string>;
-    password: FormControl<string>;
+    clave: FormControl<string>;
   }> = this.fb.group({
-    correo: ['', [Validators.required, Validators.email] ],
-    password: ['', [Validators.required]],
+    correo: ['', [Validators.required, Validators.email]],
+    clave: ['', [Validators.required]],
   });
 
-  cargando:boolean = false;
+  cargando: boolean = false;
 
   constructor(
     private fb: NonNullableFormBuilder,
@@ -41,34 +56,30 @@ export class IngresoComponent implements OnInit {
     private autenticacionService: AutenticacionService,
     private usuarioService: UsuarioService,
     private msgService: NzMessageService,
-    private tokenServicio:TokenService
-  ){}
+    private tokenServicio: TokenService
+  ) {}
 
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   enviarFormulario(): void {
     this.cargando = true;
     if (this.ingresoForm.valid) {
-      this.autenticacionService
-      .ingreso(this.ingresoForm.value)
-      .subscribe({
-          next: (respuesta) => {
-            if(respuesta) {
-              this.manejarRespuesta(respuesta); 
-            } else {
-              this.manejarError(respuesta);
-            }
-          },
-          error: (errores) => {
-            this.manejarError(errores);
-          },
-        });
+      this.autenticacionService.ingreso(this.ingresoForm.value).subscribe({
+        next: (respuesta) => {
+          if (respuesta) {
+            this.manejarRespuesta(respuesta);
+          } else {
+            this.manejarError(respuesta);
+          }
+        },
+        error: (errores) => {
+          this.manejarError(errores);
+        },
+      });
       console.log('submit', this.ingresoForm.value);
     } else {
       this.cargando = false;
-      this.msgService.error('¡Complete los campos!')
+      this.msgService.error('¡Complete los campos!');
       Object.values(this.ingresoForm.controls).forEach((control) => {
         if (control.invalid) {
           control.markAsDirty();
@@ -78,28 +89,36 @@ export class IngresoComponent implements OnInit {
     }
   }
 
-  manejarRespuesta(respuesta: any):void {
+  manejarRespuesta(respuesta: any): void {
     this.cargando = false;
-    this.msgService.success('¡Inicio de sesión exitoso!')
+    this.msgService.success('¡Inicio de sesión exitoso!');
     this.tokenServicio.manejarToken('token_simulado');
 
     const id = this.autenticacionService.obtenerIdUsuario();
     this.usuarioService.obtenerPorId(id!).subscribe({
       next: (usuario) => {
         const rol_id = usuario.rol_id;
-        
-        if(rol_id === 1 || rol_id === 2) {
-          this.router.navigate(['enviar/tickets']);
-        } else if(rol_id === 3) {
-          this.router.navigate(['admin/tickets']);
+
+        switch (rol_id) {
+          case 1:
+            this.router.navigate(['/admin']);
+            break;
+          case 2:
+            this.router.navigate(['/servidor']);
+            break;
+          case 3:
+            this.router.navigate(['/solicitante']);
+            break;
+          default:
+            this.router.navigate(['/']);
+            break;
         }
-      }
+      },
     });
   }
 
-  manejarError(errores: any):void {
+  manejarError(errores: any): void {
     this.cargando = false;
     this.msgService.error('¡Nombre de usuario o contraseña incorrecta!');
   }
-  
 }

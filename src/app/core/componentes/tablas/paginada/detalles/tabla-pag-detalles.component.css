@@ -1,0 +1,16 @@
+nz-flex {
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+nz-form-item {
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+nz-select {
+  margin: 0;
+  margin-bottom: 1em;
+  min-width: 157px;
+}
+

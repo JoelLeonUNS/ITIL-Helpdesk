@@ -1,5 +1,6 @@
 
-<nz-layout>
+<img src="assets/imagenes/uns_fondo.jpg" class="fondo-img" alt="uns_fondo"/>
+<nz-layout style="background-color: rgba(175, 175, 175, .3);">
     <nz-content>
         <div nz-flex nzJustify="center" nzAlign="center" [nzVertical]="true" style="height: 100%;">
             <h1 class="login-title">HELPDESK</h1>
@@ -16,7 +17,7 @@
                     <nz-form-item>
                         <nz-form-label>Contraseña</nz-form-label>
                         <nz-form-control nzErrorTip="¡Por favor ingrese su contraseña!">
-                            <input type="password" nz-input nzSize="large" formControlName="password" placeholder="Escriba su contraseña" />
+                            <input type="password" nz-input nzSize="large" formControlName="clave" placeholder="Escriba su contraseña" />
                         </nz-form-control>
                     </nz-form-item>
                     <button nz-button nzSize="large" class="login-form-button login-form-margin" [nzLoading]="cargando" [nzType]="'primary'">Ingresar</button>
@@ -24,7 +25,7 @@
             </nz-card>
         </div>
     </nz-content>
-    <nz-footer>
+    <nz-footer style="background-color: rgba(255, 255, 255, 0.65);">
         <nz-divider nzOrientation="center" nzText="HELPDESK - Copyright &copy; 2024"></nz-divider>
         Sistema HELPDESK.
     </nz-footer>

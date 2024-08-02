@@ -5,7 +5,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
-  selector: 'app-text-area',
+  selector: 'app-text-area-no-form',
   standalone: true,
   imports: [FormsModule, NzFormModule, NzInputModule],
   templateUrl: './text-area.component.html',
@@ -16,6 +16,8 @@ export class TextAreaComponent {
   @Input() gender: string = 'M';
   @Input() size: NzSizeLDSType = 'default';
   @Input() valor: string = '';
+  @Input() disabled: boolean = false;
+  @Input() readonly: boolean = false;
 
   @Output() valorChange = new EventEmitter<string>();
 

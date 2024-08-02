@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
@@ -9,6 +9,7 @@ import { AutenticacionService } from '../../servicios/rest/autenticacion/autenti
 import { UsuarioService } from '../../servicios/rest/usuario/usuario.service';
 import { BandejaNotificacionesComponent } from "../bandeja-notificaciones/bandeja-notificaciones.component";
 import { TokenService } from '../../servicios/token/token.service';
+import { MenuNavComponent } from "../menu-nav/menu-nav.component";
 
 @Component({
     selector: 'app-cabecera',
@@ -16,16 +17,18 @@ import { TokenService } from '../../servicios/token/token.service';
     templateUrl: './cabecera.component.html',
     styleUrl: './cabecera.component.css',
     imports: [
-        NzDividerModule,
-        NzAvatarModule,
-        NzIconModule,
-        NzDropDownModule,
-        BandejaNotificacionesComponent
+      NzDividerModule,
+      NzAvatarModule,
+      NzIconModule,
+      NzDropDownModule,
+      BandejaNotificacionesComponent,
+      MenuNavComponent
     ]
 })
 export class CabeceraComponent {  
   cargando: boolean = false;
   id?: number | null;
+  rol_id?: number;
   rol?: string;
   correo?: string;
 
@@ -49,13 +52,13 @@ export class CabeceraComponent {
       this.usuarioService.obtenerPorId(this.id).subscribe({
         next: (usuario) => {
           this.correo = usuario.correo;
-          const rol_id = usuario.rol_id;
-          if (rol_id === 1) {
-            this.rol = 'Profesor';
-          } else if (rol_id === 2) {
-            this.rol = 'Estudiante';
+          this.rol_id = usuario.rol_id;
+          if (this.rol_id === 1) {
+            this.rol = 'Administrador';
+          } else if (this.rol_id === 2) {
+            this.rol = 'Servidor';
           } else {
-            this.rol = 'Admin';
+            this.rol = 'Solicitante';
           }
         },
         error: (errores) => {
